@@ -1,0 +1,88 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+{% if user.id == job_application.user_id %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+
+    <title>Document</title>
+</head>
+<body>
+
+
+    <section class="mh-800" style="background-color: #e1e1e1; padding: 2.4rem 0;">
+        <div class="container py-5 mh-800">
+          <div class="row d-flex justify-content-center align-items-start mh-800">
+            <div class="col-md-12 col-xl-4">
+      
+              <div class="card" style="border-radius: 15px;">
+                <div class="card-body text-center">
+                  {% load humanize %}
+                  <div class="mt-3 mb-4">
+
+                    <img src="https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-chat/ava2-bg.webp"
+                    class="rounded-circle img-fluid" style="width: 100px;" />
+    
+                  </div>
+                  <h4 class="mb-2">Job Details:{{ job_application.name }}</h4>
+                  <p class="text-muted mb-4">{{ job_application.position}}<span class="mx-2">|</span>Pay: ${{job_application.pay|intcomma}}
+                    </p>
+                  <div class="mb-4 pb-2">
+
+                    {% if job_application.job_url %}
+                        <button type="button" class="btn btn-outline-primary btn-floating">
+                            <a href="{{ job_application.job_url}}"><i class="fa-solid fa-link"></i></a>
+                        </button>
+                    {% endif %}
+                
+                  </div>
+                  <a class="btn btn-primary btn-rounded btn-lg" href="{% url 'update_job' job_application.pk %}" style="color: white;">Edit</a>
+                  <a class="btn btn-danger btn-rounded btn-lg" href="{% url 'delete_job' job_application.pk %}" style="color: white;">Delete</a>
+                  <div class="d-flex justify-content-between text-center mt-5 mb-2 pr-1">
+                    <div>
+                      <p class="mb-2 h5">Contact</p>
+                      <p class="text-muted mb-0">{{ job_application.employee }}</p>
+                    </div>
+                    <div class="px-3">
+                      <p class="mb-2 h5">Company</p>
+                      <p class="text-muted mb-0">{{ job_application.company }}</p>
+                    </div>
+                    <div>
+                      <p class="mb-2 h5 mr-1">Applied?</p>
+                      <p class="text-muted mb-0 mr-1">{{ job_application.have_you_applied }}</p>
+                    </div>
+                  </div>
+                </div>
+              </div>   
+            </div>
+
+            <div class="card" style="border-radius: 15px; margin-top: 2rem; max-height: fit-content;">
+                <h4 style="margin-top: 1rem;">Notes:</h4>
+                {% if job_application.notes %}
+                    <div style="padding: 1rem;;">
+                        {{ job_application.notes|safe}}
+                    </div>
+                {% else %}
+                    <span>There are no notes for this person.</span>
+                {% endif %}
+            </div>
+          </div>
+        </div>
+        <a class="btn btn-primary btn-lg" role="button" style="margin-left: 1rem; margin-top: 2rem;" href="{% url 'home' %}">Back to Job Apps</a>
+      </section>
+
+    
+</body>
+</html>
+{% else %}
+<h1>You are not allowed to view this job application.</h1>
+
+{% endif %}
+
+{% endblock %}

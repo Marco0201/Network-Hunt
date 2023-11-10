@@ -1,0 +1,55 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+
+    {% load bootstrap4 %}
+    {% bootstrap_css %}
+    {% bootstrap_javascript jquery='full' %}
+    {{ form.media}}
+    <title>Document</title>
+</head>
+<body style="background-color: #e1e1e1;">
+
+    <div style="margin: 1rem 1rem 0 1rem;">
+    
+        {% if user.is_authenticated %}
+            <h1>Add Job Application</h1>
+            <br>
+            <div class="form-group">
+                
+                <form method="POST" enctype="multipart/form-data">
+                    {% csrf_token %}
+                    {% bootstrap_form form %}
+        
+                    {% bootstrap_button button_type="submit" content="Add" %}
+                    
+                    <!-- {{ form.as_p}} -->
+                    
+                </form>
+            </div>
+            <script>
+                let name = "{{ user.id }}";
+                document.getElementById("user").value = name;
+
+                document.querySelector('.django-ckeditor-widget').style.display = 'block'
+            </script>
+        
+        {% else %}
+            <h1>You are not allowed here.</h1>
+        {% endif %}
+
+    </div>
+    
+</body>
+</html>
+
+
+
+{% endblock %}

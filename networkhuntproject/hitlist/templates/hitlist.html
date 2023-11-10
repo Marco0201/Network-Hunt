@@ -1,0 +1,151 @@
+{% extends 'base.html' %}
+
+{% block content %}
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <!-- css -->
+  <link rel="stylesheet" href="{% static '\networkhuntproject\css\jobapps\main.css' %}">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.3.0/css/bootstrap.min.css">
+
+  <link rel="stylesheet" href="https://cdn.datatables.net/1.13.6/css/dataTables.bootstrap5.min.css">
+  
+
+  <!-- javascript -->
+
+  <script src="https://cdn.datatables.net/1.13.6/js/dataTables.bootstrap5.min.js" defer></script>
+
+
+  <title>Document</title>
+</head>
+<body style="background-color: #e1e1e1;">
+    <!-- I don't want to display any more messages -->
+    {% if messages %}
+    <ul class="messages">
+        {% for message in messages %}
+        <!-- for more information look at the link below -->
+        <!-- https://docs.djangoproject.com/en/4.2/ref/contrib/messages/#django.contrib.messages.get_messages -->
+        {% endfor %}
+    </ul>
+    {% endif %}
+
+  
+  <div class="container pt-5 pb-5" style="margin-bottom: 26.7rem; margin-top: 2rem; max-height: 40rem;">
+
+    <a class="btn btn-primary" role="button" href="{% url 'add_hitlist' %}">Add to Hitlist</a>
+
+    <div class="d-grid gap-2 d-md-flex justify-content-md-end searching">
+
+        <form class="d-flex" role="search" action="{% url 'hitlist_search_results' %}" method="get">
+            <input class="form-control me-2" aria-label="Search" name="q" type="text" placeholder="Search...">
+            <button class="btn btn-primary" type="submit">Search</button>
+          </form>
+
+    </div>
+
+    <table id="example" class="table table-striped" style="width:100%">
+      <thead>
+          <tr>
+            <th></th>
+            <th>Name</th>
+            <th class="position">Position</th>
+            <th class="company" >Company</th>
+            <th class="email" >Email</th>
+            <th>Details</th>
+            <th>Edit?</th>
+            <th>Delete?</th>
+          </tr>
+      </thead>
+
+    {% if user.is_authenticated %}
+    {% for hitlist in page_obj %}
+    {% if user.id == hitlist.user_id %}
+      <tbody>
+          <tr>
+            <td>
+              <img
+                {% if hitlist.profile_img %}
+                  src="{{ hitlist.profile_img.url }}"
+                {% else %}
+                  src="{% static 'job_tracker/images/other/user.png' %}"
+                {% endif %}
+                  height="40"
+                  alt="{{hitlist.name}}"
+                  loading="lazy"
+                  width="40"
+                  style="border-radius: 50%;"
+              />
+          </td>
+            <td>{{ hitlist.name }}</td>
+            <td class="position">{{ hitlist.position }}</td>
+            <td class="company">{{ hitlist.company }}</td>
+            <td class="email">{{ hitlist.email }}</td>
+            <td><a class="btn btn-secondary btn-sm" href="{% url 'hitlist_detail' hitlist.pk %}">view</a></td>
+            <td><a class="btn btn-primary btn-sm" href="{% url 'update_hitlist' hitlist.pk %}">edit</a></td>
+            <td><a class="btn btn-danger btn-sm" href="{% url 'delete_hitlist' hitlist.pk %}">delete</a></td>
+          </tr> 
+      </tbody>
+
+      {% endif %}
+      {% endfor %}
+      {% endif %} 
+
+     
+  </table>
+
+  
+  <nav aria-label="Page navigation example ">
+    {% if page_obj.has_other_pages %}
+    <ul class="pagination justify-content-end">
+
+
+
+        {% if page_obj.has_next %}
+            <li class="page-item"><a class="page-link" href="?page={{ page_obj.next_page_number }}">Next</a></li>
+
+            {% for i in page_obj.paginator.page_range %}
+                <li class="page-item"><a class="page-link" href="?page={{ i }}">{{ i }}</a></li>
+            {% endfor %}
+
+            <li class="page-item"></li><a class="page-link" href="?page={{ page_obj.paginator.num_pages }}">Last &raquo;</a></li>
+        
+        {% else %}
+            <li class="page-item"><a class="page-link" href="?page=1">&laquo; First</a></li>
+
+            {% for i in page_obj.paginator.page_range %}
+                <li class="page-item"><a class="page-link" href="?page={{ i }}">{{ i }}</a></li>
+            {% endfor %}
+
+            <li class="page-item"></li><a class="page-link" href="?page={{ page_obj.previous_page_number }}">Previous</a></li>
+        
+        {% endif %}
+
+
+    </ul>
+    {% endif %}
+  </nav>
+
+  </div>
+ 
+  <style>
+    @media screen and (max-width:453px) {
+      #example .position,
+      #example .company,
+      #example .email {
+        display: none;
+      }
+    }
+  </style>
+
+</body>
+</html>
+
+{% include 'footer.html' %}
+
+{% endblock %}
+
