@@ -7,23 +7,30 @@ Network Hunt is a website that lets you manage the job applications and networki
 Use the package manager [pip](https://pip.pypa.io/en/stable/) to create a virtual environment:
 
 ```bash
-python -m venv example 
+python -m venv example
 ```
-Now activate the virtual environment and install the requirements.txt file. The example below is for Windows. Mac and Linux have different commands to activate a virtual environment.
+
+Now activate the virtual environment. The example below is for Windows. Mac and Linux have different commands to activate a virtual environment.
 
 ```bash
 example/Scripts/activate
+```
 
+Change directory to Network-Hunt and install the requirements.txt file. While the virtual environment is activated.
+
+```bash
+cd Network-Hunt
 pip install -r requirements.txt
 ```
 
 ## Django allauth Regular Account Login and Registration
 
-You will be able to use the regular login and registration functionality right from the get-go as long as you install the packages required in the requirements.txt file. You can find more information on it [here](https://docs.allauth.org/en/latest/account/index.html).
+You will be able to use the regular login and registration functionality right from the get-go as long as you install the packages required in the requirements.txt file. You can find more information on it [here](https://docs.allauth.org/en/latest/account/index.html). To navigate the html pages and forms make sure to read the documentation. I do not have it configured for this project.
 
 ## Django allauth Social Account Login and Registration
 
-Social account login and registration functionality need to be configured separately by you. Navigate to the settings.py file in the networkhunproject folder and you will see the code to configure it:
+Social account login and registration functionality need to be configured separately by you. Navigate to the settings.py file in the networkhunproject folder and you will see the code to configure it, un-comment it:
+
 ```python
 SOCIALACCOUNT_PROVIDERS = {
     'google': {
@@ -33,7 +40,7 @@ SOCIALACCOUNT_PROVIDERS = {
             'secret': os.environ['Google_secret'],
             'key': ''
         }
-        
+
     },
 
     'github': {
@@ -48,7 +55,9 @@ SOCIALACCOUNT_PROVIDERS = {
 
 }
 ```
+
 You can find the information to configure it [here](https://docs.allauth.org/en/latest/socialaccount/index.html) in the Django allauth documentation. Replace the os.environ[''] with the client's id and secret, the key is usually left empty. They will be in a string format like so:
+
 ```python
 'APP': {
             'client_id': 'hi12hh4i2',
@@ -59,16 +68,31 @@ You can find the information to configure it [here](https://docs.allauth.org/en/
 
 ## Running the Project
 
-To run the project make sure to makemigrations and migrate first.
+To run the project make sure to be in the right directory. cd into networkhuntproject:
+
+```bash
+cd networkhuntproject
+```
+
+you should be in the following directory: \Network-Hunt\networkhuntproject
+
+Now you should makemigrations and then migrate.
+
 ```python
 python manage.py makemigrations
 
 python manage.py migrate
 ```
+
 Then finally, you can run the server. Additionally you can also create a superuser.
+
 ```python
 python manage.py runserver
+```
 
+Additionally you can also create a superuser.
+
+```python
 #optional
 python manage.py createsuperuser
 ```
@@ -77,7 +101,6 @@ python manage.py createsuperuser
 
 Pull requests are welcome. For major changes, please open an issue first
 to discuss what you would like to change.
-
 
 ## License
 

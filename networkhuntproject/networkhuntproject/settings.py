@@ -12,9 +12,9 @@ https://docs.djangoproject.com/en/4.2/ref/settings/
 
 from pathlib import Path
 import os
-from dotenv import load_dotenv
+# from dotenv import load_dotenv
 
-load_dotenv()
+# load_dotenv()
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -112,28 +112,28 @@ AUTHENTICATION_BACKENDS = [
 ]
 
 
-SOCIALACCOUNT_PROVIDERS = {
-    'google': {
+# SOCIALACCOUNT_PROVIDERS = {
+#     'google': {
 
-        'APP': {
-            'client_id': os.environ['Google_client_id'],
-            'secret': os.environ['Google_secret'],
-            'key': ''
-        }
+#         'APP': {
+#             'client_id': os.environ['Google_client_id'],
+#             'secret': os.environ['Google_secret'],
+#             'key': ''
+#         }
         
-    },
+#     },
 
-    'github': {
+#     'github': {
 
-        'APP': {
-            'client_id': os.environ['Github_client_id'],
-            'secret': os.environ['Github_secret'],
-            'key': ''
-        }
-    },
+#         'APP': {
+#             'client_id': os.environ['Github_client_id'],
+#             'secret': os.environ['Github_secret'],
+#             'key': ''
+#         }
+#     },
 
 
-}
+# }
 
 WSGI_APPLICATION = "networkhuntproject.wsgi.application"
 
