@@ -2,6 +2,10 @@
 
 Network Hunt is a website that lets you manage the job applications and networking you've been doing or will do.
 
+# Techs used
+
+This project was made using Html, Css, Javascript and Bootstrap for the frontend. I used Python and Django to make the backend, and Postgresql for the database.
+
 ## Installation
 
 Use the package manager [pip](https://pip.pypa.io/en/stable/) to create a virtual environment:
