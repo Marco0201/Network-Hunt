@@ -26,7 +26,7 @@ class Job_application(models.Model):
     ]
 
     have_you_applied = models.CharField(max_length=3, choices=have_you_applied_choices, null=False, default=no)
-    date_applied = models.DateField(auto_created=False)
+    date_applied = models.DateField(auto_created=False, blank=True, null=True)
 
     def __str__(self):
         return self.position
