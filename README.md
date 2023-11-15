@@ -22,7 +22,7 @@ Now activate the virtual environment.
 example/Scripts/activate
 ```
 
-Change directory to Network-Hunt and use the package manager [pip](https://pip.pypa.io/en/stable/) to install the requirements.txt file. While the virtual environment is activated.
+You should be in ``\Network-Hunt\``, so to do that change directory to Network-Hunt. Now use the package manager [pip](https://pip.pypa.io/en/stable/) to install the requirements.txt file. While the virtual environment is activated.
 
 ```bash
 cd Network-Hunt
@@ -35,7 +35,7 @@ You will be able to use the regular login and registration functionality right f
 
 ## Django allauth Social Account Login and Registration
 
-Social account login and registration functionality need to be configured separately by you. Navigate to the settings.py file in the networkhunproject folder and you will see the code to configure it, un-comment it:
+Social account login and registration functionality need to be configured separately by you. Navigate to the settings.py file in the networkhunproject folder: ``\Network-Hunt\networkhuntproject\networkhuntproject\settings.py``. You will see the code to configure it:
 
 ```python
 SOCIALACCOUNT_PROVIDERS = {
@@ -74,13 +74,7 @@ You can find the information to configure it [here](https://docs.allauth.org/en/
 
 ## Running the Project
 
-To run the project make sure to be in the right directory:
-
-```bash
-cd networkhuntproject
-```
-
-you should be in the following directory: ``\Network-Hunt\networkhuntproject``
+To run the project make sure to be in the right directory. You should be in the following directory: ``\Network-Hunt\networkhuntproject``
 
 Now you should makemigrations and then migrate.
 
