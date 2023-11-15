@@ -8,7 +8,7 @@ This project was made using Html, Css, Javascript and Bootstrap for the frontend
 
 ## Installation
 
-Use the package manager [pip](https://pip.pypa.io/en/stable/) to create a virtual environment:
+Create a virtual environment using [python](https://www.python.org/):
 
 ```bash
 python -m venv example
@@ -20,7 +20,7 @@ Now activate the virtual environment. The example below is for Windows. Mac and 
 example/Scripts/activate
 ```
 
-Change directory to Network-Hunt and install the requirements.txt file. While the virtual environment is activated.
+Change directory to Network-Hunt and use the package manager [pip](https://pip.pypa.io/en/stable/) to install the requirements.txt file. While the virtual environment is activated.
 
 ```bash
 cd Network-Hunt
@@ -88,7 +88,7 @@ python manage.py makemigrations
 python manage.py migrate
 ```
 
-Then finally, you can run the server. Additionally you can also create a superuser.
+Then finally, you can run the server.
 
 ```python
 python manage.py runserver
