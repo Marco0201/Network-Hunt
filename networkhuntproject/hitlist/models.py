@@ -17,7 +17,7 @@ class HitlistPerson(models.Model):
     github_url = models.URLField(max_length=255, blank=True, null=True)
     portfolio_url = models.URLField(max_length=255, blank=True, null=True)
     profile_img = models.ImageField(
-        null=True, blank=True, upload_to="static/job_tracker/images/hitlist")
+        null=True, blank=True, upload_to="static/networkhuntproject/images/hitlist")
     notes = HTMLField(blank=True, null=True)
     
     yes = 'Yes'
