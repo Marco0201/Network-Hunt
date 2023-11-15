@@ -62,3 +62,6 @@ class DeleteJobView(DeleteView):
     model = Job_application
     template_name = 'delete_job.html'
     success_url = reverse_lazy("home")
+
+class AboutView(TemplateView):
+    template_name = 'about.html'

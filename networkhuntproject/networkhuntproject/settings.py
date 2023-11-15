@@ -24,12 +24,14 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # See https://docs.djangoproject.com/en/4.2/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = os.environ['SECRET_KEY']
+# SECRET_KEY = os.environ['SECRET_KEY']
+SECRET_KEY = "django-insecure-54v^m3d8(9b0%*0!7_+1*8@5#3d7+_9rbqtfbo0l(gs&(yn0#l"
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 
-ALLOWED_HOSTS = [os.environ['Domain_name']]
+# ALLOWED_HOSTS = [os.environ['Domain_name']]
+ALLOWED_HOSTS = []
 
 
 # Application definition
@@ -63,7 +65,7 @@ INSTALLED_APPS = [
     # ... include the providers you want to enable:
     'allauth.socialaccount.providers.github',
     'allauth.socialaccount.providers.google',
-    'allauth.socialaccount.providers.discord',
+    # 'allauth.socialaccount.providers.discord',
     # 'allauth.socialaccount.providers.linkedin_oauth2',
 
     # automatically handles deletion of imagefields and filefields for objects
@@ -140,19 +142,19 @@ WSGI_APPLICATION = "networkhuntproject.wsgi.application"
 # https://docs.djangoproject.com/en/4.2/ref/settings/#databases
 
 DATABASES = {
-    # "default": {
-    #     "ENGINE": "django.db.backends.sqlite3",
-    #     "NAME": BASE_DIR / "db.sqlite3",
-    # }
-
-    'default': {
-        'ENGINE': os.environ['dbEngine'],
-        'NAME': os.environ['dbName'],
-        'USER': os.environ['dbUser'],
-        'PASSWORD': os.environ['dbPassword'],
-        'HOST': os.environ['dbHost'],
-        'PORT': int(os.environ['dbPort']),
+    "default": {
+        "ENGINE": "django.db.backends.sqlite3",
+        "NAME": BASE_DIR / "db.sqlite3",
     }
+
+    # 'default': {
+    #     'ENGINE': os.environ['dbEngine'],
+    #     'NAME': os.environ['dbName'],
+    #     'USER': os.environ['dbUser'],
+    #     'PASSWORD': os.environ['dbPassword'],
+    #     'HOST': os.environ['dbHost'],
+    #     'PORT': int(os.environ['dbPort']),
+    # }
 }
 
 
@@ -196,7 +198,7 @@ STATICFILES_DIRS = [
     os.path.join(BASE_DIR, 'static/networkhuntproject'),
 ]
 
-STATIC_ROOT = os.path.join(BASE_DIR, 'static')
+# STATIC_ROOT = os.path.join(BASE_DIR, 'static')
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.2/ref/settings/#default-auto-field

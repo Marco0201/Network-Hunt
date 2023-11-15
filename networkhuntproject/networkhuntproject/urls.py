@@ -22,7 +22,8 @@ from dotenv import load_dotenv
 load_dotenv()
 
 urlpatterns = [
-    path(os.environ['admin_url'], admin.site.urls),
+    # path(os.environ['admin_url'], admin.site.urls),
+    path('admin/', admin.site.urls),
     path('', include('jobapps.urls')),
     # path('accounts/', include('members.urls')),
     path('hitlist/', include('hitlist.urls')),

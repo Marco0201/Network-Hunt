@@ -9,4 +9,5 @@ urlpatterns = [
     path('job/edit/<int:pk>', login_required(UpdateJobView.as_view()), name='update_job'),
     path('job/<int:pk>/remove', login_required(DeleteJobView.as_view()), name='delete_job'),
     path('jobsearch/', login_required(JobSearchView), name='job_search_results'),
+    path('about', login_required(AboutView.as_view()), name="about"),
 ]

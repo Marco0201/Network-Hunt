@@ -1,0 +1,89 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static '\networkhuntproject\javascript\jobapps\faqs.css' %}">
+
+    <script src="https://kit.fontawesome.com/3b1a291887.js" crossorigin="anonymous"></script>
+    
+    <title>Document</title>
+</head>
+<body>
+    <main>
+        <div class="directory">
+            <h1 class="faq-heading">Q & A</h1>
+        </div>
+        
+        <section class="faq-container">
+            <div class="faq-one">
+                <!-- faq question -->
+                <h1 class="faq-page">What tech's did you use to make this website?</h1>
+                <!-- faq answer -->
+                <div class="faq-body">
+                    <p>Great question! This website was created using the following technologies: HTML, CSS, JavaScript, and Bootstrap for the frontend; Python and Django for the backend; and PostgreSQL as the database.</p>
+                </div>
+            </div>
+            <hr class="hr-line">
+            <div class="faq-two">
+                <!-- faq question -->
+                <h1 class="faq-page">Why did you make this website?</h1>
+                <!-- faq answer -->
+                <div class="faq-body">
+                    <p>Another great question! This site was created to manage the job applications I applied for and to track the networking I did during the job hunt. I decided to make this because I didn't really like tracking everything on excel or word. Don't get me wrong, Excel and Word are versatile and great tools, but I just don't like using them. So I made this.</p>
+                </div>
+            </div>
+            <hr class="hr-line">
+            <div class="faq-three">
+                <!-- faq question -->
+            <h1 class="faq-page">Is there a way to make the notes section larger?</h1>
+                <!-- faq answer -->
+                <div class="faq-body">
+                    <p>Yes! There is a button on the notes section's toolbar that allows you to go fullscreen. It's located under the file dropdown menu. I would also encourage you to look at the insert menu options, especially for developers; you can insert code into the notes section. Although you can't run the code, it enables you to format the inputted code.</p>
+                </div>
+            </div>
+            <hr class="hr-line">
+            <div class="faq-four">
+                <!-- faq question -->
+                <h1 class="faq-page">Can I upload imgs and media files in the Notes section?</h1>
+                <!-- faq answer -->
+                <div class="faq-body">
+                    <p>Fantastic question! Simple answer: No. You can include images and media files in the notes section, but they must be hosted elsewhere. You can insert them using a link, but local uploads aren't possible. I chose not to include this option to reduce strain on the backend.</p>
+                </div>
+            </div>
+            <hr class="hr-line">
+            <div class="faq-five">
+                <!-- faq question -->
+                <h1 class="faq-page">Why did you not include a regular registration and login form?</h1>
+                <!-- faq answer -->
+                <div class="faq-body">
+                    <p>Wow, you have so many great questions! The idea behind not including a regular registration and login form is to simplify things on the backend. I aim to let the social providers handle the heavy work. I wanted all aspects of account creation, password reset, etc., to be managed by the providers. All you have to do is log in with your social accounts and start using the site.</p>
+                </div>
+            </div>
+            <hr class="hr-line">
+            <div class="faq-six">
+                <!-- faq question -->
+                <h1 class="faq-page">Can I view the code for this website?</h1>
+                <!-- faq answer -->
+                <div class="faq-body">
+                    <p>Gee golly, of course, you absolutely can! The code is available on my GitHub account. Here is the <a style="text-decoration: none;" href="https://github.com/Marco0201/Network-Hunt">link</a>.</p>
+                </div>
+            </div>
+            <hr class="hr-line">
+            <div class="faq-six">
+                <!-- faq question -->
+                <h1 class="faq-page">What is a Coffee Chat? And why is it included in the Hitlist Section?</h1>
+                <!-- faq answer -->
+                <div class="faq-body">
+                    <p>Amazing question! A coffee chat is exactly as it sounds—a chat over coffee. But it doesn't have to be face-to-face or even involve coffee; you can do it online and have ice cream, for example. Who doesn't love ice cream?! It's a great way to network with someone. It doesn't need to be long either, just 10-30 minutes. Give it a shot!</p>
+                </div>
+            </div>
+        </section>
+    </main>
+
+
+    <script src="{% static '\networkhuntproject\javascript\jobapps\faqs.js' %}"></script>
+</body>
+</html>
