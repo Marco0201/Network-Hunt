@@ -8,13 +8,15 @@ This project was made using Html, Css, Javascript and Bootstrap for the frontend
 
 ## Installation
 
+``Keep in mind the examples below are Window's commands. Mac and Linux have different commands when doing the installation.``
+
 Create a virtual environment using [python](https://www.python.org/):
 
 ```bash
 python -m venv example
 ```
 
-Now activate the virtual environment. The example below is for Windows. Mac and Linux have different commands to activate a virtual environment.
+Now activate the virtual environment.
 
 ```bash
 example/Scripts/activate
@@ -72,13 +74,13 @@ You can find the information to configure it [here](https://docs.allauth.org/en/
 
 ## Running the Project
 
-To run the project make sure to be in the right directory. cd into networkhuntproject:
+To run the project make sure to be in the right directory:
 
 ```bash
 cd networkhuntproject
 ```
 
-you should be in the following directory: \Network-Hunt\networkhuntproject
+you should be in the following directory: ``\Network-Hunt\networkhuntproject``
 
 Now you should makemigrations and then migrate.
 
