@@ -214,9 +214,9 @@ SOCIALACCOUNT_LOGIN_ON_GET=False
 ACCOUNT_EMAIL_VERIFICATION = "none"
 # EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
 
-ACCOUNT_ADAPTER = 'members.adapter.AccountAdapter'
+# ACCOUNT_ADAPTER = 'members.adapter.AccountAdapter'
 
-SOCIALACCOUNT_ADAPTER = 'members.adapter.SocialAccountAdapter'
+# SOCIALACCOUNT_ADAPTER = 'members.adapter.SocialAccountAdapter'
 
 
 BOOTSTRAP_DATEPICKER_PLUS = {
