@@ -8,8 +8,10 @@ from django.db.models import Q
 
 # Create your views here.
 
+class Landing_PageView(TemplateView):
+    template_name = 'landing_page.html'
 
-class HomeView(ListView):
+class JobHomeView(ListView):
     model = Job_application
     template_name = 'home.html'
     ordering = ['-date_applied']
@@ -65,3 +67,6 @@ class DeleteJobView(DeleteView):
 
 class AboutView(TemplateView):
     template_name = 'about.html'
+
+class FAQS_PageView(TemplateView):
+    template_name = 'faqs.html'

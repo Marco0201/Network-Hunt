@@ -57,6 +57,8 @@
         />
         <!-- <h5>The Hunt</h5> -->
       </a>
+
+      {% if user.is_authenticated %}
       <!-- Left links -->
       <ul class="navbar-nav me-auto mb-2 mb-lg-0">
         <li class="nav-item">
@@ -70,9 +72,14 @@
         </li>
       </ul>
       <!-- Left links -->
+      {% else %}
+        <span>Network Hunt</span>
+      {% endif %}
+
     </div>
     <!-- Collapsible wrapper -->
 
+    {% if user.is_authenticated %}
     <!-- Right elements -->
     <div class="d-flex align-items-center">
 
@@ -109,6 +116,9 @@
       </div>
     </div>
     <!-- Right elements -->
+    {% else %}
+    
+    {% endif %}
   </div>
   <!-- Container wrapper -->
 </nav>
